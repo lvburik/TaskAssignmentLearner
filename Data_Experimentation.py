@@ -35,7 +35,8 @@ def create_dataset(data_folder, dataset_name):
 
                     for task_id, task in content["tasks"].items():
                         row = {
-                            "task_location": task[0],
+                            "task_x": task[0],
+                            "task_y": task[1],
                             "agent_x": agent_location[0],
                             "agent_y": agent_location[1],
                             "team_count": len(team_locations),
@@ -60,7 +61,8 @@ def create_dataset(data_folder, dataset_name):
     print(f"Saved {len(df):,} rows to {output_path}")
 
 
-create_dataset("Data", "set1")
+create_dataset("Data/trainset", "train1")
+create_dataset("Data/testset", "test1")
 
 
 

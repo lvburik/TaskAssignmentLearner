@@ -1,13 +1,17 @@
 from pathlib import Path
-
+import numpy as np
 import pandas as pd
 import xgboost as xgb
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
 from sklearn.model_selection import train_test_split
 
+import pickle
+number_of_estimators = 1028
 
-DATASET_PATH = Path("DataSets/set1.h5")
-MODEL_PATH = Path("models/XGB100estimators.json")
+DATASET_PATH = Path("DataSets/train1.h5")
+MODEL_PATH = Path(f"models/XGB{number_of_estimators}estimators.json")
+
+
 
 def create_dataset(dataset_path):
     """Load the pre-flattened HDF5 dataset."""
@@ -19,15 +23,14 @@ def create_dataset(dataset_path):
 
 
 
-def train_model(X_train, y_train):
+def train_model(X_train, y_train, pos_class_weight = 0.5, n_estimators = number_of_estimators):
     """Train the XGBoost classifier and print progress updates."""
     model = xgb.XGBClassifier(
-        n_estimators=100,
-        max_depth=5,
-        learning_rate=0.1,
-        random_state=42,
-        n_jobs=-1,
-        verbosity=1,
+        n_estimators=n_estimators,
+        objective='binary:logistic',
+        scale_pos_weight=pos_class_weight,
+        max_delta_step=1,
+        random_state=42
     )
 
     print("Starting model training...")
@@ -58,12 +61,16 @@ def main():
     X, y = create_dataset(DATASET_PATH)
 
     print("Splitting data into test and training sets")
-    X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=0.4,
-        random_state=42,
-    )
+    # X_train, X_test, y_train, y_test = train_test_split(
+    #    X,
+    #    y,
+    #    test_size=0.0,
+    #    random_state=42,
+    #)
+    X_train = X
+    y_train = y
+
+    X_test, y_test = create_dataset(Path("DataSets/test1.h5"))
 
     print("\nTraining label distribution:")
     print(y_train.value_counts())
@@ -71,16 +78,18 @@ def main():
     print("\nTesting label distribution:")
     print(y_test.value_counts())
 
+    # 1.5) Calculate Class imbalance on the full dataset: 
+    pos_class_weight = (len(y) - np.sum(y)) / np.sum(y)
+
     # 2) Train model
     print("Training model")
-    model = train_model(X_train, y_train)
+    model = train_model(X_train, y_train, pos_class_weight= pos_class_weight, n_estimators=number_of_estimators)
 
     # 3) Evaluate model
     evaluate_model(model, X_test, y_test)
 
     # 4) Save the trained model
-    MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-    model.save_model(MODEL_PATH)
+    pickle.dump(model, open(MODEL_PATH, 'wb'))
     print(f"\nModel saved to: {MODEL_PATH}")
 
 
