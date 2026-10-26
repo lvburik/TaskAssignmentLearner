@@ -9,6 +9,8 @@ __pycache__/
 # Data
 Data/
 DataSets/
+trainset/
+validationset/
 
 # Distribution / packaging
 .Python

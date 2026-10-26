@@ -6,3 +6,4 @@ torch-geometric
 ray[rllib]
 pettingzoo
 h5py
+tables
