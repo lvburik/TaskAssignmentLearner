@@ -1,9 +1,7 @@
+numpy
 pandas
 scikit-learn
 xgboost
 torch
-torch-geometric
-ray[rllib]
-pettingzoo
 h5py
 tables
