@@ -1,0 +1,96 @@
+CNN hyperparameter search: 10 models
+
+Model 1/10 started
+Architecture: blocks=2, base_channels=16, kernel_size=3, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.2
+Optimizer: lr=0.001, weight_decay=0.0001
+New global best: F1=0.5207, threshold=0.75
+Architecture: blocks=2, base_channels=16, kernel_size=3, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.2
+Confusion matrix:
+[[279060  14435]
+ [ 15640  16335]]
+Model 1 completed: best_F1=0.5207, best_threshold=0.75
+Architecture: blocks=2, base_channels=16, kernel_size=3, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.2
+Confusion matrix:
+[[279060  14435]
+ [ 15640  16335]]
+
+Model 2/10 started
+Architecture: blocks=2, base_channels=24, kernel_size=3, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.2
+Optimizer: lr=0.001, weight_decay=0.0001
+Model 2 completed: best_F1=0.5200, best_threshold=0.72
+Architecture: blocks=2, base_channels=24, kernel_size=3, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.2
+Confusion matrix:
+[[279821  13674]
+ [ 15938  16037]]
+
+Model 3/10 started
+Architecture: blocks=3, base_channels=16, kernel_size=3, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.2
+Optimizer: lr=0.001, weight_decay=0.0001
+Model 3 completed: best_F1=0.5165, best_threshold=0.75
+Architecture: blocks=3, base_channels=16, kernel_size=3, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.2
+Confusion matrix:
+[[278207  15288]
+ [ 15521  16454]]
+
+Model 4/10 started
+Architecture: blocks=3, base_channels=24, kernel_size=3, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Optimizer: lr=0.0005, weight_decay=0.0001
+Model 4 completed: best_F1=0.4490, best_threshold=0.65
+Architecture: blocks=3, base_channels=24, kernel_size=3, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Confusion matrix:
+[[260873  32622]
+ [ 13275  18700]]
+
+Model 5/10 started
+Architecture: blocks=2, base_channels=32, kernel_size=3, classifier_width=256, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Optimizer: lr=0.0005, weight_decay=0.0001
+Model 5 completed: best_F1=0.2942, best_threshold=0.58
+Architecture: blocks=2, base_channels=32, kernel_size=3, classifier_width=256, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Confusion matrix:
+[[229400  64095]
+ [ 15409  16566]]
+
+Model 6/10 started
+Architecture: blocks=2, base_channels=16, kernel_size=5, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.2
+Optimizer: lr=0.001, weight_decay=0.0001
+Model 6 completed: best_F1=0.5207, best_threshold=0.85
+Architecture: blocks=2, base_channels=16, kernel_size=5, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.2
+Confusion matrix:
+[[280904  12591]
+ [ 16290  15685]]
+
+Model 7/10 started
+Architecture: blocks=2, base_channels=24, kernel_size=5, classifier_width=256, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Optimizer: lr=0.0005, weight_decay=0.001
+Model 7 completed: best_F1=0.1862, best_threshold=0.50
+Architecture: blocks=2, base_channels=24, kernel_size=5, classifier_width=256, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Confusion matrix:
+[[ 44664 248831]
+ [  3145  28830]]
+
+Model 8/10 started
+Architecture: blocks=3, base_channels=32, kernel_size=3, classifier_width=256, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Optimizer: lr=0.0005, weight_decay=0.0001
+Model 8 completed: best_F1=0.2257, best_threshold=0.45
+Architecture: blocks=3, base_channels=32, kernel_size=3, classifier_width=256, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Confusion matrix:
+[[108580 184915]
+ [  4389  27586]]
+
+Model 9/10 started
+Architecture: blocks=3, base_channels=16, kernel_size=5, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Optimizer: lr=0.0005, weight_decay=0.001
+Model 9 completed: best_F1=0.4137, best_threshold=0.60
+Architecture: blocks=3, base_channels=16, kernel_size=5, classifier_width=128, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.3
+Confusion matrix:
+[[256092  37403]
+ [ 13880  18095]]
+
+Model 10/10 started
+Architecture: blocks=3, base_channels=24, kernel_size=5, classifier_width=256, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.4
+Optimizer: lr=0.0003, weight_decay=0.001
+Model 10 completed: best_F1=0.3244, best_threshold=0.58
+Architecture: blocks=3, base_channels=24, kernel_size=5, classifier_width=256, branches=map:(max,average),task:(max,average),agent:(max,average), dropout=0.4
+Confusion matrix:
+[[225482  68013]
+ [ 12617  19358]]
