@@ -11,6 +11,8 @@ Data/
 DataSets/
 trainset/
 validationset/
+JSON_Data/
+*.h5
 
 # Distribution / packaging
 .Python
