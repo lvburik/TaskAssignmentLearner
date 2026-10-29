@@ -63,3 +63,17 @@ The training scripts accept command-line options for dataset paths and model
 search settings; run a script with `--help` to see them. CNN training loads its
 datasets into memory, so allow sufficient RAM for both training and validation
 images.
+
+## Visualize CNN training samples
+
+Save three distinct, randomly selected samples from the CNN training dataset
+to `cnn_training_samples.png`. The script also saves
+`cnn_training_samples_channels.png`, showing each sample's full image and its
+red, green, and blue channels separately:
+
+```bash
+python CNN_sample_visualizer.py
+```
+
+Use `--dataset` or `--output` to choose different paths. Pass `--seed N` to
+reproduce the same sample selection.

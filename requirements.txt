@@ -5,3 +5,4 @@ xgboost
 torch
 h5py
 tables
+matplotlib

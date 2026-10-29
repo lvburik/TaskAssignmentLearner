@@ -13,6 +13,7 @@ trainset/
 validationset/
 JSON_Data/
 *.h5
+*.png
 
 # Distribution / packaging
 .Python
