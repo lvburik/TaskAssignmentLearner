@@ -93,12 +93,12 @@ def _base_image(map_matrix: list[list[Any]], state: dict[str, Any]) -> np.ndarra
         x, y = _task_position(task)
         if not (0 <= x < width and 0 <= y < height):
             raise ValueError(f"Task position {(x, y)} is outside the map")
-        task_channel[y, x] = 192
+        task_channel[y, x] = 0
     for agent in state.get("agents", {}).values():
         x, y = _position(agent["pos"])
         if not (0 <= x < width and 0 <= y < height):
             raise ValueError(f"Agent position {(x, y)} is outside the map")
-        agent_channel[y, x] = 192
+        agent_channel[y, x] = 0
 
     map_channel = np.clip(map_channel * 255, 0, 255)
     return np.stack((map_channel, task_channel, agent_channel), axis=-1).astype(np.uint8)

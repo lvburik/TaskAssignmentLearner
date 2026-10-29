@@ -72,7 +72,12 @@ def save_random_samples(dataset_path: Path, output_path: Path, seed: int | None)
         f"{output_path.stem}_channels{output_path.suffix or '.png'}"
     )
     figure, axes = plt.subplots(4, 3, figsize=(9, 12))
-    row_labels = ("Full image", "R channel", "G channel", "B channel")
+    row_labels = (
+        "Full image",
+        "R (map) channel",
+        "G (tasks) channel",
+        "B (agents) channel",
+    )
     for row, name in enumerate(row_labels):
         axes[row, 0].set_ylabel(name)
 
